@@ -452,7 +452,7 @@
         const userUrl = `https://${currentDomain}/users/${author}`;
 
         if (number < giveawayData.startNum || number > giveawayData.endNum) {
-            sendMessage(`[code][b]❌ Invalid entry from [url=${userUrl}][u]${author}[/u][/url][/b]! [i]Please choose a number between:[/i] [b]${giveawayData.startNum}</b> and [b]${giveawayData.endNum}[/b].[/code]`);
+            sendMessage(`[code][b]❌ Invalid entry from [url=${userUrl}][u]${author}[/u][/url][/b]! [i]Please choose a number between:[/i] [b]${giveawayData.startNum}[/b] and [b]${giveawayData.endNum}[/b].[/code]`);
             return;
         }
         if (numberEntries.has(author)) {
