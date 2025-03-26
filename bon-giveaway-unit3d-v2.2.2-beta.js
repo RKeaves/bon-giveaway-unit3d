@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         bon-giveaway-unit3d-v2.2.1-beta
-// @description  Slot-based Bonus (BON) giveaway system with enhanced prompts for UNIT3D trackers. Reminders Reworked.
-// @version      2.2.1
+// @name         bon-giveaway-unit3d-v2.2.2-beta
+// @description  Slot-based Bonus (BON) giveaway system with enhanced prompts for UNIT3D trackers, colors fixed.
+// @version      2.2.2
 // @namespace   https://github.com/rkeaves
 // @downloadURL https://github.com/rkeaves/bon-giveaway-unit3d/raw/main/bon-giveaway-unit3d-v2.2.1-beta.js
 // @updateURL   https://github.com/rkeaves/bon-giveaway-unit3d/raw/main/bon-giveaway-unit3d-v2.2.1-beta.js
@@ -286,9 +286,9 @@
         sendMessage(
             `◾️  ` +
             ` [img]https://i.ibb.co/HfFjtyYC/cash-Money-1x.webp[/img] ` +
-            ` [b][color=#ffc00a]${giveawayData.amount} BON Giveaway! [/color][/b]` +
-            `[i] Pick a number[/i] [b]${giveawayData.startNum}-${giveawayData.endNum}[/b]. ` +
-            `[b] Once we reach [color=#ffc00a]${giveawayData.requiredSlots}[/color] participants, the draw begins![/b] ${sponsorMsg}\n`
+            ` [b][color=#ffc00a]${giveawayData.amount}[/color] [color=#ffc00a]BON[/color] [b][color=#00FA9A]Giveaway![/color][/b]` +
+            `[i] Pick a number[/i] [b][color=#ffc00a]${giveawayData.startNum}-${giveawayData.endNum}[/color][/b]. ` +
+            ` Once we reach [color=#ffc00a]${giveawayData.requiredSlots}[/color] participants, [b]the draw begins![/b] ${sponsorMsg}\n`
         );
 
         if (!observer) {
@@ -339,26 +339,27 @@
 
         // !help command: show list of commands
         if (lowerMsg.startsWith("!help")) {
-            const helpText = `[code][b][color=#ffc00a]🎉 Giveaway Commands 🎉[/color][/b]\n\n` +
-                `[b]• [color=#00ff00]!help[/color][/b] — Show this help message.\n` +
-                `[b]• [color=#00ff00]!status[/color][/b] — Display current giveaway status.\n` +
-                `[b]• [color=#00ff00]!info[/color][/b] — Show detailed giveaway information.\n` +
-                `[b]• [color=#00ff00]!reminder[/color][/b] — Manually trigger a giveaway reminder.\n` +
-                `[b]• [color=#00ff00]!random[/color][/b] — Enter with a random number within the allowed range.\n` +
-                `[b]• [color=#ff0000]!cancel[/color][/b] — Cancel the current giveaway.\n` +
-                `[b]• [color=#00ff00]!start[/color][/b] — Force start the giveaway.\n` +
-                `[b]• [color=#00ff00][number][/color][/b] — Enter the giveaway by typing a valid number.\n\n` +
+            const helpText = `[code][b][color=#00FF7F]🎉 Giveaway Commands 🎉[/color][/b]\n\n` +
+                `[b]• [color=#00FA9A]!help[/color][/b] — Show this help message.\n` +
+                `[b]• [color=#00FA9A]!status[/color][/b] — Display current giveaway status.\n` +
+                `[b]• [color=#00FA9A]!info[/color][/b] — Show detailed giveaway information.\n` +
+                `[b]• [color=#00FA9A]!reminder[/color][/b] — Manually trigger a giveaway reminder.\n` +
+                `[b]• [color=#00FA9A]!random[/color][/b] — Enter with a random number within the allowed range.\n` +
+                `[b]• [color=#00FA9A]!start[/color][/b] — Force start the giveaway.\n` +
+                `[b]• [color=#00FA9A][number][/color][/b] — Enter the giveaway by typing a valid number.\n` +
+                `[b]• [color=#00FA9A]!cancel[/color][/b] — Cancel the current giveaway.\n\n` +
                 `[b] Once [color=#ffc00a]${giveawayData.requiredSlots}[/color] valid entries are received, the giveaway concludes automatically! [/b][/code]`;
+
             sendMessage(helpText);
             return;
         }
 
         // !status command: show current entry count and number range (winning number hidden)
         if (lowerMsg.startsWith("!status")) {
-            const statusMsg = `[code][b][color=#ffc00a]🎉 Giveaway Status 🎉[/color][/b]\n\n` +
-                `[b]• [color=#00ff00]Registered Entries[/color][/b]: ${numberEntries.size} / [color=#ffc00a]${giveawayData.requiredSlots}[/color]\n` +
-                `[b]• [color=#00ff00]Number Range[/color][/b]: [color=#ffc00a]${giveawayData.startNum}[/color] - [color=#ffc00a]${giveawayData.endNum}[/color]\n\n` +
-                `[i]${giveawayData.requiredSlots - numberEntries.size} more entries needed for the draw at ${giveawayData.requiredSlots} participants![/i]`;
+            const statusMsg = `[code][b][color=#00FF7F]🎉 Giveaway Status 🎉[/color][/b]\n\n` +
+                `[b]• [color=#FFE4B5]Registered Entries[/color][/b]: [color=#ffc00a]${numberEntries.size}[/color] - [color=#ffc00a]${giveawayData.requiredSlots}[/color]\n` +
+                `[b]• [color=#FFE4B5]Number Range[/color][/b]: [color=#ffc00a]${giveawayData.startNum}[/color] - [color=#ffc00a]${giveawayData.endNum}[/color]\n\n` +
+                `[i][color=#ffc00a]${giveawayData.requiredSlots - numberEntries.size}[/color] more entries needed for the draw at [color=#ffc00a]${giveawayData.requiredSlots}[/color] participants![/i]`;
             sendMessage(statusMsg);
             return;
         }
@@ -452,27 +453,27 @@
         const userUrl = `https://${currentDomain}/users/${author}`;
 
         if (number < giveawayData.startNum || number > giveawayData.endNum) {
-            sendMessage(`[code][b]❌ Invalid entry from [url=${userUrl}][u]${author}[/u][/url][/b]! [i]Please choose a number between:[/i] [b]${giveawayData.startNum}[/b] and [b]${giveawayData.endNum}[/b].[/code]`);
+            sendMessage(`[code][b]❌ Invalid entry from [url=${userUrl}][u]${author}[/u][/url][/b]! [i]Please choose a number between:[/i] [color=#ffc00a][b]${giveawayData.startNum}[/b][/color] and [color=#ffc00a][b]${giveawayData.endNum}[/b][/color].[/code]`);
             return;
         }
         if (numberEntries.has(author)) {
-            sendMessage(`[code]◽️ [url=${userUrl}][b][u]${author}[/u][/b][/url], [i]you've already[/i] [b]entered[/b] [i]the giveaway, type !help for more.[/i][/code]`);
+            sendMessage(`[code]◽️ [url=${userUrl}][b][u]${author}[/u][/b][/url], [i]you've already[/i] [b]entered[/b] [i]the giveaway, type [color=#ffc00a]!help[/color] for more.[/i][/code]`);
             return;
         }
         if (Array.from(numberEntries.values()).includes(number)) {
-            sendMessage(`[code]◽️ Sorry [url=${userUrl}][b][u]${author}[/u][/b][/url], [i]the number[/i] [b][u]${number}[/u][/b] [i]is already taken.[/i] [b]Please choose another![/b][/code]`);
+            sendMessage(`[code]◽️ Sorry [url=${userUrl}][b][u]${author}[/u][/b][/url], [i]the number[/i] [color=#ffc00a][b][u]${number}[/u][/b][/color] [i]is already taken.[/i] [b]Please choose another![/b][/code]`);
             return;
         }
         numberEntries.set(author, number);
         updateEntries();
         if (isRandom) {
-            sendMessage(`[code]◽️ [i]Assigned number[/i]: [b][u]${number}[/u][/b] [i]for[/i] [url=${userUrl}][b][u]${author}[/u][/b][/url] [i]via !random[/i].[/code]`);
+            sendMessage(`[code]◽️ [i]Assigned number[/i]: [color=#ffc00a][b][u]${number}[/u][/b][/color] [i]for[/i] [url=${userUrl}][b][u]${author}[/u][/b][/url] [i]via !random[/i].[/code]`);
         } else {
-            sendMessage(`[code]◽️ [i]Successfully registered[/i]: [url=${userUrl}][b][u]${author}[/u][/b][/url] [i]with number[/i] [color=#00ff00][b][u]${number}[/u][/b][/color].[/code]`);
+            sendMessage(`[code]◽️ [i]Successfully registered[/i]: [url=${userUrl}][b][u]${author}[/u][/b][/url] [i]with number[/i] [color=#ffc00a][b][u]${number}[/u][/b][/color].[/code]`);
         }
 
         if (numberEntries.size >= giveawayData.requiredSlots) {
-            sendMessage("[code][b]Slots are full![/b] 🏁  [i]Drawing winner[/i]...[/code]");
+            sendMessage("[code][b][i][color=#7B68EE]Slots are full![/color][/i][/b]  🏁  [i][color=#FF00FF]Drawing winner[/color][/i]...[/code]");
             setTimeout(endGiveaway, 2000);
         }
     }
@@ -491,9 +492,9 @@
         const reminderText =
             `◾️ ` +
             `[img]https://i.ibb.co/HfFjtyYC/cash-Money-1x.webp[/img] ` +
-            ` [b][color=#ffc00a]${giveawayData.amount} BON Giveaway![/color][/b]` +
-            ` Pick a number [b]${giveawayData.startNum}-${giveawayData.endNum}[/b]. ` +
-            ` [b] Once we reach [color=#ffc00a]${giveawayData.requiredSlots}[/color] participants, the draw begins![/b] [img]https://i.ibb.co/sp1DDGHv/Coin-Time-1x.webp[/img]`;
+            ` [b][color=#ffc00a]${giveawayData.amount}[/color] [color=#ffc00a]BON[/color] [b][color=#00FA9A]Giveaway![/color][/b]` +
+            `[i] Pick a number[/i] [b][color=#ffc00a]${giveawayData.startNum}-${giveawayData.endNum}[/color][/b]. ` +
+            ` Once we reach [color=#ffc00a]${giveawayData.requiredSlots}[/color] participants, [b]the draw begins![/b] [img]https://i.ibb.co/sp1DDGHv/Coin-Time-1x.webp[/img]`;
         sendMessage(reminderText);
     }
 
@@ -519,7 +520,7 @@
             const currentDomain = window.location.hostname;
             const userUrl = `https://${currentDomain}/users/${closestEntry.user}`;
             sendMessage(
-                `[code]🏆 [i]Winner:[/i] [b][color=#ffc00a] [url=${userUrl}][u]${closestEntry.user}[/u][/url][/color][/b] [i]with number[/i] [color=#00ff00][b][u]${closestEntry.num}[/u][/b] 🎯[/color], [i]congrats ![/i]  [img=45]https://i.ibb.co/9mpKkQpM/Money-1x-1.webp[/img][/code]`
+                `[code]🏆 [i]Winner:[/i] [b][color=#ffc00a] [url=${userUrl}][u]${closestEntry.user}[/u][/url][/color][/b] [i]with number[/i] [color=#ffc00a][b][u]${closestEntry.num}[/u][/b] 🎯[/color], [i]congrats ![/i]  [img=45]https://i.ibb.co/9mpKkQpM/Money-1x-1.webp[/img][/code]`
             );
             sendMessage(`/gift ${closestEntry.user} ${giveawayData.amount} Giveaway winner!`);
         } else {
