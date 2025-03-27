@@ -3,8 +3,8 @@
 // @description  Slot-based Bonus (BON) giveaway system with enhanced prompts for UNIT3D trackers, colors fixed.
 // @version      2.2.2
 // @namespace   https://github.com/rkeaves
-// @downloadURL https://github.com/rkeaves/bon-giveaway-unit3d/raw/main/bon-giveaway-unit3d-v2.2.1-beta.js
-// @updateURL   https://github.com/rkeaves/bon-giveaway-unit3d/raw/main/bon-giveaway-unit3d-v2.2.1-beta.js
+// @downloadURL https://github.com/rkeaves/bon-giveaway-unit3d/raw/main/bon-giveaway-unit3d-v2.2.2-beta.js
+// @updateURL   https://github.com/rkeaves/bon-giveaway-unit3d/raw/main/bon-giveaway-unit3d-v2.2.2-beta.js
 // @license      GPL-3.0-or-later
 // @match        https://privatesilverscreen.cc/
 // @grant        none
