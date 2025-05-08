@@ -1,6 +1,6 @@
 # bon-giveaway-unit3d
 
-**bon-giveaway-unit3d** is a slot-based Bonus (BON) giveaway system tailored for UNIT3D trackers. This userscript integrates directly into the chat interface, allowing hosts to manage interactive giveaways with ease and style. With customizable options, real-time validations, and enhanced prompts, running a giveaway event becomes a seamless experience.
+**bon-giveaway-unit3d** is a slot-based Bonus (BON) giveaway system tailored for UNIT3D trackers. This userscript integrates directly into the chat interface, allowing hosts to manage interactive giveaways with ease and style. With customizable options, real-time validations, and enhanced prompts.
 
 ---
 
